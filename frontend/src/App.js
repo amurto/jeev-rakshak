@@ -1,13 +1,13 @@
 import React from 'react';
-import * as tf from '@tensorflow/tfjs'
-const MODEL_URL = process.env.PUBLIC_URL + '/model/'
-const LABELS_URL = MODEL_URL + 'labels.json'
-const MODEL_JSON = MODEL_URL + 'model.json'
+
+import Mobilenet from './components/model/Mobilenet';
+
+
 
 const App = () => {
   return (
     <div>
-      hi
+      <Mobilenet />
     </div>
   );
 }
