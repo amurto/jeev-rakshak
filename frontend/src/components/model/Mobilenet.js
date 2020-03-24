@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import IMAGENET_CLASSES from '../classlist.js';
 import * as tf from '@tensorflow/tfjs';
-const MODEL_URL = process.env.PUBLIC_URL + '/model/';
+const MODEL_URL = process.env.PUBLIC_URL + '/mobilenet/';
 // const LABELS_URL = MODEL_URL + 'labels.json';
 const MODEL_JSON = MODEL_URL + 'model.json';
 
@@ -10,7 +11,7 @@ const Mobilenet = () => {
 
 
     const loadModel = async () => {
-        const model = await tf.loadGraphModel(MODEL_JSON)  
+        const model = await tf.loadLayersModel(MODEL_JSON)  
         setModel(model)
     }
 
@@ -29,7 +30,7 @@ const Mobilenet = () => {
         var img = new Image();
         img.src = photoURL;
         let tensor = tf.browser.fromPixels(img)
-                        .resizeNearestNeighbor([100,100])
+                        .resizeNearestNeighbor([224,224])
                         .toFloat()
                         .expandDims()
         console.log(tensor)
@@ -40,7 +41,7 @@ const Mobilenet = () => {
                 .map((p, i) => {
                     return {
                         probability: p,
-                        class: i
+                        class: IMAGENET_CLASSES[i]
                     }
                 }).sort((a, b) => {
                     return b.probability - a.probability;
