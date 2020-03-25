@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import IMAGENET_CLASSES from '../classlist.js';
+import CLASSES from '../classlist.js';
 import * as tf from '@tensorflow/tfjs';
-const MODEL_URL = process.env.PUBLIC_URL + '/mobnet/';
+const MODEL_URL = process.env.PUBLIC_URL + '/mobilenet/';
 // const LABELS_URL = MODEL_URL + 'labels.json';
 const MODEL_JSON = MODEL_URL + 'model.json';
 
@@ -33,8 +33,6 @@ const Mobilenet = () => {
                         .resizeNearestNeighbor([224,224])
                         .toFloat()
                         .expandDims()
-        tensor = tensor
-        console.log(tensor)
         let res = await model.predict(tensor)
         console.log(res)
         model.predict(tensor).data().then(predictions => {
@@ -42,13 +40,12 @@ const Mobilenet = () => {
                 .map((p, i) => {
                     return {
                         probability: p,
-                        i: i,
-                        class: IMAGENET_CLASSES[i]
+                        class: CLASSES[i]
                     }
                 }).sort((a, b) => {
                     return b.probability - a.probability;
                 }).slice(0,5);
-            console.log(top5)
+                console.log(top5)
         })
     }
 
