@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CLASSES from '../classlist.js';
 import * as tf from '@tensorflow/tfjs';
 const MODEL_URL = process.env.PUBLIC_URL + '/mobilenet/';
@@ -6,6 +6,18 @@ const MODEL_URL = process.env.PUBLIC_URL + '/mobilenet/';
 const MODEL_JSON = MODEL_URL + 'model.json';
 
 const Mobilenet = () => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+    const interval = setInterval(() => setCount(count + 1), 1000);
+    return () => {
+        clearInterval(interval);
+    };
+    }, [count]);
+
+    // useEffect(() => {
+    //     console.log(count)
+    // })
     const [model, setModel] = useState(null);
     const [photoURL, setPhotoURL] = useState(null)
 
@@ -34,19 +46,17 @@ const Mobilenet = () => {
                         .toFloat()
                         .expandDims()
         let res = await model.predict(tensor)
-        console.log(res)
-        model.predict(tensor).data().then(predictions => {
-            let top5 = Array.from(predictions)
-                .map((p, i) => {
-                    return {
-                        probability: p,
-                        class: CLASSES[i]
-                    }
-                }).sort((a, b) => {
-                    return b.probability - a.probability;
-                }).slice(0,5);
-                console.log(top5)
-        })
+        let predictions = await res.data()
+        let top5 = Array.from(predictions)
+                        .map((p, i) => {
+                            return {
+                                probability: p,
+                                class: CLASSES[i]
+                            }
+                        }).sort((a, b) => {
+                            return b.probability - a.probability;
+                        }).slice(0,5);
+        console.log(top5[0].class)
     }
 
     return (
@@ -58,7 +68,7 @@ const Mobilenet = () => {
                     <div>
                         {photoURL && (
                             <div>
-                                <img src={photoURL} alt="Mob" />
+                                <img src={photoURL} height="300" width="300" alt="Mob" />
                             </div>
                         )}
                     </div>
