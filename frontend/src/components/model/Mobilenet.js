@@ -7,7 +7,7 @@ const MODEL_JSON = MODEL_URL + 'model.json';
 
 const Mobilenet = () => {
     const [count, setCount] = useState(0);
-
+    const [result, setResult] = useState(null);
     useEffect(() => {
     const interval = setInterval(() => setCount(count + 1), 1000);
     return () => {
@@ -39,7 +39,7 @@ const Mobilenet = () => {
 
     
     const identify = async () => {
-        var img = new Image();
+        var img = new Image(1000,1000);
         img.src = photoURL;
         let tensor = tf.browser.fromPixels(img)
                         .resizeNearestNeighbor([224,224])
@@ -56,7 +56,8 @@ const Mobilenet = () => {
                         }).sort((a, b) => {
                             return b.probability - a.probability;
                         }).slice(0,5);
-        console.log(top5[0].class)
+        console.log(top5)
+        setResult(top5[0].class)
     }
 
     return (
@@ -73,6 +74,9 @@ const Mobilenet = () => {
                         )}
                     </div>
                     <button onClick={identify}>identify</button>
+                    {result && (
+                        <h5>{result}</h5>
+                    )}
                 </div>
             )}
         </div>

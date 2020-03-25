@@ -5,8 +5,9 @@ import WebcamComponent from './components/utils/WebcamComponent';
 const App = () => {
   return (
     <div>
-      <Mobilenet />
+      {/* <Mobilenet /> */}
       {/* <WebcamComponent /> */}
+      ok
     </div>
   );
 }
