@@ -1,14 +1,19 @@
-import React from 'react';
-import Mobilenet from './components/model/Mobilenet';
-import WebcamComponent from './components/utils/WebcamComponent';
+import React, { useState, useCallback } from 'react';
+import { ModelContext } from './components/model-context';
+import Cam from './components/Cam';
+
 
 const App = () => {
+  const [model, setModel] = useState(null);
+
+  const loadModel = useCallback((model) => {
+      setModel(model);
+  }, []);
+
   return (
-    <div>
-      {/* <Mobilenet /> */}
-      {/* <WebcamComponent /> */}
-      ok
-    </div>
+      <ModelContext.Provider value={{model: model, loadModel: loadModel}}>
+        <Cam />
+      </ModelContext.Provider>
   );
 }
 
@@ -33,12 +38,3 @@ export default App;
 // 		}
 // 	}
 // }
-
-// const [time, setTime] = useState(Date.now());
-
-// useEffect(() => {
-//   const interval = setInterval(() => setTime(Date.now()), 1000);
-//   return () => {
-//     clearInterval(interval);
-//   };
-// }, []);

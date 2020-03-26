@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CLASSES from '../classlist.js';
+import CLASSES from './classlist.js';
 import * as tf from '@tensorflow/tfjs';
 const MODEL_URL = process.env.PUBLIC_URL + '/mobilenet/';
 // const LABELS_URL = MODEL_URL + 'labels.json';
