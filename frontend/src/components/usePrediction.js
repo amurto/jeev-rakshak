@@ -19,6 +19,8 @@ const detectFrame = async (model, videoRef, setResult) => {
                 return b.probability - a.probability;
             }).slice(0,5);
     setResult(top5[0].class + String(top5[0].probability))
+    tensor.dispose()
+    tf.dispose(res)
 }
 
 const usePrediction = (model, videoRef, shouldRender) => {
