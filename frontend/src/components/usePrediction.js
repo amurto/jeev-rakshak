@@ -23,6 +23,30 @@ const detectFrame = async (model, videoRef, setResult) => {
     tf.dispose(res)
 }
 
+const batched = tf.tidy(() => {
+const img = tf.browser.fromPixels(input);
+const small = tf.image.resizeBilinear(img, [224, 224]).div(255);
+
+// Reshape to a single-element batch so we can pass it to executeAsync.
+return small.expandDims(0).toFloat();
+});
+
+const results = graph.execute(batched);
+
+const scores = results.arraySync()[0];
+
+results.dispose();
+batched.dispose();
+
+const finalScores = scores.map((score, i) => ({
+label: labels[i],
+score: score
+}));
+
+finalScores.sort((a, b) => b.score - a.score);
+
+return finalScores;
+
 const usePrediction = (model, videoRef, shouldRender) => {
     const [result, setResult] = useState('')
     useEffect(() => {
