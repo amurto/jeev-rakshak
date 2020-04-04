@@ -5,7 +5,10 @@ import {
   Redirect, 
   Switch 
 } from 'react-router-dom';
+import './index.css';
 import Landing from './components/Landing';
+import Classify from './components/Classify';
+import Detect from './components/Detect';
 
 const App = () => {
   let routes;
@@ -13,6 +16,12 @@ const App = () => {
     <Switch>
       <Route path="/" exact>
           <Landing />
+      </Route>
+      <Route path="/classify" exact>
+          <Classify />
+      </Route>
+      <Route path="/detect" exact>
+          <Detect />
       </Route>
       <Redirect to="/" />
     </Switch>
