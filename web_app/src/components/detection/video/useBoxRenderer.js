@@ -100,7 +100,7 @@ const detectFrame = async (model, videoRef, canvasRef, labels, dimensions) => {
       const img = tf.browser.fromPixels(videoRef.current)
       const small = tf.image.resizeBilinear(img, [dimensions.height, dimensions.width])
       // Reshape to a single-element batch so we can pass it to executeAsync.
-      return small.expandDims(0).toFloat();
+      return small.expandDims(0).toInt();
     })
 
     const height = batched.shape[1]
@@ -153,7 +153,9 @@ const detectFrame = async (model, videoRef, canvasRef, labels, dimensions) => {
     requestAnimationFrame(() => {
       detectFrame(model, videoRef, canvasRef, labels, dimensions)
     })
-  } catch(err) {}
+  } catch(err) {
+    console.log(err)
+  }
 }
 
 const useBoxRenderer = (model, videoRef, canvasRef, shouldRender, labels) => {

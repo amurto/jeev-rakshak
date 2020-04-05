@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from './Header';
+import Classify from './Classify';
+import Detect from './Detect';
 
 const Landing = () => {
     return (
@@ -13,7 +14,44 @@ const Landing = () => {
         </div>
 
         <div className="site-wrap">
-        <Header />
+        <div className="site-mobile-menu site-navbar-target">
+            <div className="site-mobile-menu-header">
+              <div className="site-mobile-menu-close mt-3">
+                <span className="icon-close2 js-menu-toggle"></span>
+              </div>
+            </div>
+            <div className="site-mobile-menu-body"></div>
+          </div>
+          
+          <header className="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+            
+            <div className="container-fluid">
+              <div className="d-flex align-items-center">
+                <div className="site-logo"><img src="imgs/Logo.png" alt="Jeev-Rakshak-Logo" height="50" width="50"/></div>
+                <h5>&nbsp;Jeev Rakshak</h5>
+                <div>
+                  <nav className="site-navigation position-relative text-right" role="navigation">
+                    <ul className="site-menu main-menu js-clone-nav mr-auto d-none d-xl-block">
+                      <li><a href="#home-section" className="nav-link">Home</a></li>
+                      <li><a href="#features-section" className="nav-link">Features</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                
+                <div className="ml-auto">
+                  <nav className="site-navigation position-relative text-right" role="navigation">
+                    <ul className="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-xl-block">
+                    <li><a href="/#" className="nav-link">Contact</a></li>
+                      <li><a href="#demo-section" className="btn btn-outline-black py-3 px-5">Try Now</a></li>
+                    </ul>
+                  </nav>
+                  <a href="/#" className="d-inline-block d-xl-none site-menu-toggle js-menu-toggle float-right"><span className="icon-menu h3"></span></a>
+                </div>
+              
+              </div>
+            </div>
+            
+          </header>
           <div className="intro-section custom-owl-carousel" id="home-section">
             <div className="container">
               <div className="row align-items-center">
@@ -23,7 +61,7 @@ const Landing = () => {
                     <div className="slide-text">
                       <h1>Jeev Rakshak</h1>
                       <p className="mb-5">Jeev Rakshak is a wildlife species identification and offence registration web app.<br/>The web app takes an image as an input and passes this image to the MobileNet+SSD model and the model returns that image with bounding boxes around the identified animals along with their probable species.</p>
-                      <p><a href="/#" target="_blank" className="btn btn-outline-light py-3 px-5">Try Now</a></p>
+                      <p><a href="#demo-section" className="btn btn-outline-light py-3 px-5 smoothscroll">Try Now</a></p>
                     </div>
                     
                     <div className="slide-text">
@@ -164,8 +202,23 @@ const Landing = () => {
             
             <div className="col-md-6 mr-auto order-2 order-md-1">  
               <h2 className="section-title mb-3">Contact Us</h2>
-              <p className="mb-5">You can email us at jeevrakshak@gmail.com<br/>Your email isn't going to the inbox abyss, never to be seen or heard from again.<br/>At Jeev Rakshak, we provide the exceptional service we'd want to experience ourselves!</p>
+              <p className="mb-5">TensorFlow.js is an amazing library<br/>You can make cool projects and test it out yourselves.</p>
             </div>
+          </div>
+        </div>
+        <div className="site-section bg-dark" id="demo-section" data-aos="fade">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-6 mb-5">
+                  <h2 className="section-title">Demo</h2>
+                </div>
+              </div>
+            </div>
+          <div style={{ marginTop: '10px', marginBottom: '100px' }}>
+            <Classify />
+          </div>
+          <div style={{ marginTop: '100px', marginBottom: '50px' }}>
+            <Detect />
           </div>
         </div>
       </div>
@@ -176,7 +229,7 @@ const Landing = () => {
                 
                 <div className="col-md-4">
                   <h3>About Us</h3>
-                  <p>We are a team of programmers from Mira Road, Mumbai.</p>
+                  <p>We are a bunch of programmers.</p>
                 </div>
 
                 <div className="col-md-3 ml-auto">
@@ -185,12 +238,13 @@ const Landing = () => {
                     <li><a href="#home-section" className="smoothscroll">Home</a></li>
                     <li><a href="#features-section" className="smoothscroll">Features</a></li>
                     <li><a href="#contact-section" className="smoothscroll">Contact</a></li>
+                    <li><a href="#demo-section" className="smoothscroll">Demo</a></li>
                   </ul>
                 </div>
 
                 <div className="col-md-4">
-                  <h3>Subscribe</h3>
-                  <p>Subscribe and get a special 10% discount on your first purchase!<br/>To subscribe, email us with "Subscribe" as the subject.</p>
+                  <h3>Project</h3>
+                  <p>This is a project we made as a part of our SEM 6 curriculum.</p>
                 </div>
               
               </div>

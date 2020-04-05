@@ -28,11 +28,25 @@ const Detect = () => {
 
   const loadModel = async () => {
     setLoading(true);
-    const model = await tf.loadGraphModel(MODEL_JSON);
-    fetchModel(model);
-    const response = await fetch(LABELS_URL);
-    let labels = await response.json();
-    fetchLabels(labels)
+    const savedModel = localStorage.getItem('animal_detector');
+    const savedLabels = localStorage.getItem('animal_detector_labels');
+    if (savedModel && savedLabels) {
+      const model = await tf.loadGraphModel('indexeddb://animal_detector'); 
+      let labels_json = JSON.parse(savedLabels);
+      fetchModel(model);
+      fetchLabels(labels_json)
+      console.log("saved animal detector found")
+    } else {
+      // Loading Model for first time
+      const model = await tf.loadGraphModel(MODEL_JSON);
+      fetchModel(model);
+      const response = await fetch(LABELS_URL);
+      let labels_json = await response.json();
+      fetchLabels(labels_json)
+      localStorage.setItem('animal_detector', true);
+      model.save('indexeddb://animal_detector')
+      localStorage.setItem('animal_detector_labels', JSON.stringify(labels_json));
+    }
     setLoading(false);
   }
 
@@ -47,7 +61,8 @@ const Detect = () => {
           selectMode: selectMode
         }}>
           <div className="header-div">
-            This currently uses SSD + Mobilenetv2 pretrained coco model
+            <p className="demo-title">Object Detection</p>
+            <p>This currently uses SSD + Mobilenetv2 pretrained coco model</p>
           </div>
           <div>
             {model ? (
@@ -60,13 +75,14 @@ const Detect = () => {
                     <div style={{ textAlign: 'center' }}>
                       <LoadingSpinner />
                       <p style={{
-                        color: '#6e00b8',
+                        color: '#950740',
                         fontWeight: '500',
                       }}>Loading Model. Please wait a few seconds...</p>
                     </div>
                   ) : (
                     <button className="css-btn" style={{ width: '60%' }} onClick={loadModel}>
-                      <p style={{ fontSize: '16px', fontWeight: '500' }}>Load Model</p>
+                      <div style={{ fontSize: '16px', fontWeight: '500' }}>Load Model</div>
+                      <div style={{ fontSize: '16px', fontWeight: '500' }}>6 MB</div>
                     </button>
                   )}
               </div>
