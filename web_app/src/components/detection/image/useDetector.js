@@ -60,7 +60,6 @@ const buildDetectedObjects = (
 }
 
 const renderPredictions = (predictions, canvasRef) => {
-    console.log(predictions)
     const ctx = canvasRef.current.getContext('2d')
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     // Font options.
@@ -72,7 +71,6 @@ const renderPredictions = (predictions, canvasRef) => {
         const y = prediction.bbox[1]
         const width = prediction.bbox[2]
         const height = prediction.bbox[3]
-        // console.log(x, y, width, height)
         // Draw the bounding box.
         ctx.strokeStyle = '#00FFFF'
         ctx.lineWidth = 4

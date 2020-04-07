@@ -72,7 +72,6 @@ const renderPredictions = (predictions, canvasRef) => {
     const y = prediction.bbox[1]
     const width = prediction.bbox[2]
     const height = prediction.bbox[3]
-    // console.log(x, y, width, height)
     // Draw the bounding box.
     ctx.strokeStyle = '#00FFFF'
     ctx.lineWidth = 4
@@ -95,7 +94,6 @@ const renderPredictions = (predictions, canvasRef) => {
 
 const detectFrame = async (model, videoRef, canvasRef, labels, dimensions) => {
   try {
-    // console.log(videoRef.current.width, videoRef.current.height)
     const batched = tf.tidy(() => {
       const img = tf.browser.fromPixels(videoRef.current)
       const small = tf.image.resizeBilinear(img, [dimensions.height, dimensions.width])
@@ -153,9 +151,7 @@ const detectFrame = async (model, videoRef, canvasRef, labels, dimensions) => {
     requestAnimationFrame(() => {
       detectFrame(model, videoRef, canvasRef, labels, dimensions)
     })
-  } catch(err) {
-    console.log(err)
-  }
+  } catch(err) {}
 }
 
 const useBoxRenderer = (model, videoRef, canvasRef, shouldRender, labels) => {

@@ -28,9 +28,7 @@ const detectFrame = async (model, labels, videoRef, resultRef) => {
         requestAnimationFrame(() => {
             detectFrame(model, labels, videoRef, resultRef)
         })
-    } catch(err) {
-        console.log(err)
-    }
+    } catch(err) {}
 }
 
 const useVideoPrediction = (model, labels, videoRef, resultRef, shouldRender) => {

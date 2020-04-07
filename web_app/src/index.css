@@ -153,3 +153,8 @@ code {
     border-bottom-style: solid;
     font-size: 22px;
 }
+
+.black-text {
+    color: #000000;
+    font-weight: 400;
+}

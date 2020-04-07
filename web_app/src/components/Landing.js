@@ -45,7 +45,7 @@ const Landing = () => {
                 <div className="ml-auto">
                   <nav className="site-navigation position-relative text-right" role="navigation">
                     <ul className="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-xl-block">
-                    <li><a href="/#" className="nav-link">Contact</a></li>
+                    <li><a href="#glance-section" className="nav-link">Glance</a></li>
                       <li><a href="#demo-section" className="btn btn-outline-black py-3 px-5">Try Now</a></li>
                     </ul>
                   </nav>
@@ -118,14 +118,14 @@ const Landing = () => {
                 <div className="col-lg-5 mr-auto mb-5"  data-aos="fade-up">
                   <div className="mb-5">
                     <h2 className="section-title">Jeev Rakshak</h2>
-                    <p>Jeev Rakshak is a wildlife species identification and offence registration web app.<br/>The web app takes an image as an input and passes this image to the MobileNet+SSD model and the model returns that image with bounding boxes around the identified animals along with their probable species.</p>
+                    <p className="black-text">Jeev Rakshak is a wildlife species identification and offence registration web app.<br/>The web app takes an image as an input and passes this image to the MobileNet+SSD model and the model returns that image with bounding boxes around the identified animals along with their probable species.</p>
                     <ul className="ul-check list-unstyled success">
-                      <li>Ease Of Use</li>
-                      <li>Saves Manual Labour</li>
-                      <li>Brilliant Accuracy</li>
-                      <li>Fully Automatic Animal Spotting System</li>
-                      <li>Species Identification</li>
-                      <li>Offence Registration</li>
+                      <li className="black-text">Ease Of Use</li>
+                      <li className="black-text">Saves Manual Labour</li>
+                      <li className="black-text">Brilliant Accuracy</li>
+                      <li className="black-text">Fully Automatic Animal Spotting System</li>
+                      <li className="black-text">Species Identification</li>
+                      <li className="black-text">Offence Registration</li>
                     </ul>  
                   </div>
                 </div>
@@ -148,7 +148,7 @@ const Landing = () => {
                 <div>
                   <span className="custom-icon-wrap"><img src="icons/ease-of-use.png" alt="Ease-Of-Use-Icon" height="60px" width="60px"/></span>
                   <h3>Ease Of Use</h3>
-                  <p>Simple, elegant and mobile-compatible interface.<br/><br/><br/><br/><br/></p>
+                  <p className="black-text">Simple, elegant and mobile-compatible interface.<br/><br/><br/><br/><br/></p>
                 </div>
               </div>
 
@@ -156,7 +156,7 @@ const Landing = () => {
                 <div>
                   <span className="custom-icon-wrap"><img src="icons/saves-manual-labour.png" alt="Saves-Manual-Labour-Icon" height="60px" width="60px"/></span>
                   <h3>Saves Manual Labour</h3>
-                  <p>It saves a tremendous amount of time for biology researchers and the human volunteers that help by labeling images.<br/>Thus it dramatically reduces the cost to gather valuable information from wild habitats.</p>
+                  <p className="black-text">It saves a tremendous amount of time for biology researchers and the human volunteers that help by labeling images.<br/>Thus it dramatically reduces the cost to gather valuable information from wild habitats.</p>
                 </div>
               </div>
 
@@ -164,7 +164,7 @@ const Landing = () => {
                 <div>
                   <span className="custom-icon-wrap"><img src="icons/accuracy.png" alt="Accuracy-Icon" height="60px" width="60px"/></span>
                   <h3>Brilliant Accuracy</h3>
-                  <p>It identifies animals in the input images and gives results with bounding boxes with an accuracy of 96%.<br/><br/><br/><br/></p>
+                  <p className="black-text">It identifies animals in the input images and gives results with bounding boxes with an accuracy of 96%.<br/><br/><br/><br/></p>
                 </div>
               </div>
 
@@ -172,7 +172,7 @@ const Landing = () => {
                 <div>
                   <span className="custom-icon-wrap"><img src="icons/animal-spotting.png" alt="Fully-Automatic-Animal-Spotting-System-Icon" height="60px" width="60px"/></span>
                   <h3>Fully Automatic Animal Spotting System</h3>
-                  <p>It can automatically identify species of animals in the input images and can easily give truly real-time results.<br/><br/><br/></p>
+                  <p className="black-text">It can automatically identify species of animals in the input images and can easily give truly real-time results.<br/><br/><br/></p>
                 </div>
               </div>
 
@@ -180,7 +180,7 @@ const Landing = () => {
                 <div>
                   <span className="custom-icon-wrap"><img src="icons/species-identification.png" alt="Species-Identification-Icon" height="60px" width="60px"/></span>
                   <h3>Species identification</h3>
-                  <p>Bounding box species identification of the input image for 11 species that include Butterfly, Elephant, Tiger, Lion, Horse, Panda, Bear, Monkey, Dog, Deer and Human.<br/><br/></p>
+                  <p className="black-text">Bounding box species identification of the input image for 11 species that include Butterfly, Elephant, Tiger, Lion, Horse, Panda, Bear, Monkey, Dog, Deer and Human.<br/><br/></p>
                 </div>
               </div>
 
@@ -188,25 +188,25 @@ const Landing = () => {
                 <div>
                   <span className="custom-icon-wrap"><img src="icons/offence-registration.png" alt="Offence-Registration-Icon" height="60px" width="60px"/></span>
                   <h3>Offence Registration</h3>
-                  <p>Users can register offences towards animals by uploading an image or the geo-location or both.<br/><br/><br/><br/></p>
+                  <p className="black-text">Users can register offences towards animals by uploading an image or the geo-location or both.<br/><br/><br/><br/></p>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <div className="site-section" id="contact-section"  data-aos="fade">
-        <div className="container">
+          <div className="site-section" id="glance-section"  data-aos="fade">
+        <div style={{ marginBottom: '50px' }} className="container">
 
           <div className="row align-items-center">
-            
             <div className="col-md-5 order-1 order-md-2 mb-5 mb-md-0">
-              <img src="imgs/Contact2.png" alt="Contact" className="img-fluid"/>
+              <video src="demo/demo.mp4" className="img-fluid" controls loop />
             </div>
             
             <div className="col-md-6 mr-auto order-2 order-md-1">  
-              <h2 className="section-title mb-3">Contact Us</h2>
-              <p className="mb-5">TensorFlow.js is an amazing library<br/>You can make cool projects and test it out yourselves.</p>
+              <h2 className="section-title mb-3">At a Glance</h2>
+              <p className="black-text mb-5">TensorFlow.js is an amazing library<br/>You can make cool projects and test it out yourselves. View how the model works on videos captured by camera traps throughout the world!</p>
+              <p style={{ fontWeight: '500', color: '#C3073F' }} className="mb-5">Note: Model can only identify the animals on which it is trained on.</p>
             </div>
           </div>
         </div>
@@ -225,7 +225,7 @@ const Landing = () => {
             <Detect />
           </div>
         </div>
-        <div style={{ marginTop: '40px' }} className="container">
+        <div style={{ marginTop: '100px' }} className="container">
           <div className="row">
             <div style={{ textAlign: 'center' }} className="col-lg-3 col-md-6 col-sm-12 mb-5">
                 <img style={{ display: 'inline-block' }} src={react} width="250" height="250" alt="react" />
@@ -259,8 +259,9 @@ const Landing = () => {
                   <ul className="list-unstyled footer-links">
                     <li><a href="#home-section" className="smoothscroll">Home</a></li>
                     <li><a href="#features-section" className="smoothscroll">Features</a></li>
-                    <li><a href="#contact-section" className="smoothscroll">Contact</a></li>
+                    <li><a href="#glance-section" className="smoothscroll">Glance</a></li>
                     <li><a href="#demo-section" className="smoothscroll">Demo</a></li>
+                    <li><a href="https://github.com/amurto" className="smoothscroll">Github</a></li>
                   </ul>
                 </div>
 
