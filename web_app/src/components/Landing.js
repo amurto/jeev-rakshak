@@ -1,6 +1,10 @@
 import React from 'react';
 import Classify from './Classify';
 import Detect from './Detect';
+import react from './logoicons/react.png';
+import tf from './logoicons/tf.png';
+import keras from './logoicons/keras.png';
+import colab from './logoicons/colab.png';
 
 const Landing = () => {
     return (
@@ -219,6 +223,24 @@ const Landing = () => {
           </div>
           <div style={{ marginTop: '100px', marginBottom: '50px' }}>
             <Detect />
+          </div>
+        </div>
+        <div style={{ marginTop: '40px' }} className="container">
+          <div className="row">
+            <div style={{ textAlign: 'center' }} className="col-lg-3 col-md-6 col-sm-12 mb-5">
+                <img style={{ display: 'inline-block' }} src={react} width="250" height="250" alt="react" />
+            </div>
+            <div style={{ textAlign: 'center' }} className="col-lg-3 col-md-6 col-sm-12 mb-5">
+                <img style={{ display: 'inline-block' }} src={tf} width="250" height="250" alt="tf" />
+            </div>
+            <div style={{ textAlign: 'center', color: 'black' }} className="col-lg-3 col-md-6 col-sm-12 mb-5">
+                <img style={{ display: 'inline-block' }} src={keras} width="200" height="200" alt="keras" />
+                <h1>Keras</h1>
+            </div>
+            <div style={{ textAlign: 'center', color: 'black' }} className="col-lg-3 col-md-6 col-sm-12 mb-5">
+                <img style={{ display: 'inline-block' }} src={colab} width="200" height="200" alt="colab" />
+                <h1>Colab</h1>
+            </div>
           </div>
         </div>
       </div>
