@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/jeev-rakshak/static/css/main.308f3d26.chunk.css",
+    "main.js": "/jeev-rakshak/static/js/main.7d6b4bbf.chunk.js",
+    "main.js.map": "/jeev-rakshak/static/js/main.7d6b4bbf.chunk.js.map",
+    "runtime-main.js": "/jeev-rakshak/static/js/runtime-main.5e2d25b1.js",
+    "runtime-main.js.map": "/jeev-rakshak/static/js/runtime-main.5e2d25b1.js.map",
+    "static/js/2.1d3882fa.chunk.js": "/jeev-rakshak/static/js/2.1d3882fa.chunk.js",
+    "static/js/2.1d3882fa.chunk.js.map": "/jeev-rakshak/static/js/2.1d3882fa.chunk.js.map",
+    "index.html": "/jeev-rakshak/index.html",
+    "precache-manifest.3c6d7fbb883baa46153a39f358f80544.js": "/jeev-rakshak/precache-manifest.3c6d7fbb883baa46153a39f358f80544.js",
+    "service-worker.js": "/jeev-rakshak/service-worker.js",
+    "static/css/main.308f3d26.chunk.css.map": "/jeev-rakshak/static/css/main.308f3d26.chunk.css.map",
+    "static/js/2.1d3882fa.chunk.js.LICENSE.txt": "/jeev-rakshak/static/js/2.1d3882fa.chunk.js.LICENSE.txt",
+    "static/media/keras.png": "/jeev-rakshak/static/media/keras.aba3531c.png",
+    "static/media/react.png": "/jeev-rakshak/static/media/react.e1099df7.png",
+    "static/media/tf.png": "/jeev-rakshak/static/media/tf.df661c75.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e2d25b1.js",
+    "static/js/2.1d3882fa.chunk.js",
+    "static/css/main.308f3d26.chunk.css",
+    "static/js/main.7d6b4bbf.chunk.js"
+  ]
+}
